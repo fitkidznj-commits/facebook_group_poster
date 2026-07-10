@@ -1,0 +1,101 @@
+{
+  "version": "2026-07-10",
+  "source_file": "group_research/florida_keys_facebook_subgroups.json",
+  "default_limits": {
+    "normal_post_group_count": "3-8",
+    "keys_wide_post_group_count": "8-12",
+    "stagger_minutes": "10-15",
+    "requires_rule_check_before_posting": true
+  },
+  "recommendation_buckets": ["primary", "secondary", "skip"],
+  "canonical_town_identity_file": "group_research/town_group_identities.json",
+  "geography": {
+    "keys_wide": {
+      "primary": ["What's Up Florida Keys? LOCALS ONLY"],
+      "secondary": [
+        "Florida Keys Events",
+        "Florida Keys Local Business information and advertising",
+        "Keep It Local Florida Keys",
+        "Keys Life (a place to share)",
+        "Florida Keys Business Directory",
+        "Florida Keys - Locals Only"
+      ]
+    },
+    "key_largo_tavernier": {
+      "primary": ["Key Largo, FL Keys"],
+      "secondary": ["Key Largo Life", "Key Largo", "Key Largo and Islamorada Happenings", "I LOVE Key Largo!"]
+    },
+    "islamorada": {
+      "primary": ["Islamorada, Florida"],
+      "secondary": ["GOOD MORNING ISLAMORADA", "I LOVE Islamorada!", "Islamorada, FL Keys", "Key Largo and Islamorada Happenings"]
+    },
+    "marathon_middle_keys": {
+      "primary": ["Marathon, FL Keys Past|Present|Future- (uncensored)"],
+      "secondary": ["Marathon, FL Keys", "Key Colony Beach Facebook Group", "I LOVE Marathon!"]
+    },
+    "lower_keys_key_west": {
+      "primary": ["THINGS TO DO IN KEY WEST", "Big Pine, FL Keys"],
+      "secondary": []
+    },
+    "statewide_keys_relevant": {
+      "primary": ["Florida Lobster Mini Season and Regular"],
+      "secondary": ["Florida offshore fishing"]
+    }
+  },
+  "post_types": {
+    "business": {
+      "primary": [
+        "Florida Keys Local Business information and advertising",
+        "Keep It Local Florida Keys",
+        "Florida Keys Business Directory"
+      ],
+      "add_geography": true,
+      "avoid_unless_contextual": ["Florida Keys History with Brad Bertelli", "South Dade and Upper Keys Homeschoolers", "Sea Base Trek Talk - Prep, News, Info"]
+    },
+    "event": {
+      "primary": ["Florida Keys Events", "Key Largo and Islamorada Happenings", "THINGS TO DO IN KEY WEST"],
+      "add_geography": true
+    },
+    "food_drink": {
+      "primary": ["Florida Keys Events", "Upper Keys Wine Beer & Food Events"],
+      "secondary": ["THINGS TO DO IN KEY WEST", "Key Largo and Islamorada Happenings"],
+      "add_geography": true
+    },
+    "fishing_boating_marine": {
+      "primary": ["Florida Keys Fishing"],
+      "secondary": ["Florida Lobster Mini Season and Regular", "Florida offshore fishing", "Experience the Islamorada Sandbar!"],
+      "add_geography": true
+    },
+    "tourism_recreation": {
+      "primary": ["Florida Keys Events", "THINGS TO DO IN KEY WEST", "Experience the Islamorada Sandbar!"],
+      "secondary": ["Key Largo and Islamorada Happenings"],
+      "add_geography": true
+    },
+    "jobs": {
+      "primary": ["Upper Florida Keys Employers & Job Seekers", "Marathon, Florida Area Jobs and career opportunites"],
+      "add_geography": false
+    },
+    "housing": {
+      "primary": ["Upper Fl Keys Rentals", "Florida Keys Forever Home"],
+      "add_geography": false
+    },
+    "environment": {
+      "primary": ["Florida Bay Forever", "Florida Sargassum Reports + Daily News"],
+      "secondary": ["Pirates Saving Paradise Group", "Florida Keys Fishing"],
+      "add_geography": true
+    },
+    "history": {
+      "primary": ["Florida Keys History with Brad Bertelli"],
+      "secondary": ["What's Up Florida Keys? LOCALS ONLY"],
+      "add_geography": true
+    },
+    "family_education": {
+      "primary": ["South Dade and Upper Keys Homeschoolers"],
+      "add_geography": false
+    },
+    "scouting_youth": {
+      "primary": ["Sea Base Trek Talk - Prep, News, Info"],
+      "add_geography": false
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "collection": "Florida Keys Facebook Subgroups",
+  "owner": "Dan Heart (Coach)",
+  "source": "https://www.facebook.com/dan.heart.615367/groups",
+  "captured": "2026-07-08",
+  "total_keys_groups": 40,
+  "subgroups": {
+    "keys_wide": {
+      "label": "Keys-Wide (entire island chain)",
+      "groups": [
+        {"name": "What's Up Florida Keys? LOCALS ONLY", "members": 52000, "tag": "community", "tier": 1},
+        {"name": "Florida Keys History with Brad Bertelli", "members": 34200, "tag": "history", "tier": 2},
+        {"name": "Florida Keys Events", "members": 11900, "tag": "events", "tier": 2},
+        {"name": "Florida Keys Local Business information and advertising", "members": 9200, "tag": "business", "tier": 2},
+        {"name": "Keep It Local Florida Keys", "members": 7300, "tag": "business", "tier": 2},
+        {"name": "Keys Life (a place to share)", "members": 5700, "tag": "community", "tier": 2},
+        {"name": "Florida Keys Business Directory", "members": 5400, "tag": "business", "tier": 2},
+        {"name": "Florida Keys - Locals Only", "members": 3900, "tag": "community", "tier": 2},
+        {"name": "Upper Fl Keys Rentals", "members": 3600, "tag": "housing", "tier": 3},
+        {"name": "Florida Keys Forever Home", "members": 3200, "tag": "housing", "tier": 3},
+        {"name": "Pirates Saving Paradise Group", "members": 404, "tag": "community-cause", "tier": 3},
+        {"name": "South Dade and Upper Keys Homeschoolers", "members": 137, "tag": "family-education", "tier": 3},
+        {"name": "Upper Keys Wine Beer & Food Events", "members": 86, "tag": "food-events", "tier": 3},
+        {"name": "Amigos of Florida Keys", "members": 21, "tag": "community", "tier": 3},
+        {"name": "Florida Keys Fishing", "members": 137800, "tag": "fishing", "tier": 1},
+        {"name": "Florida Sargassum Reports + Daily News", "members": 24300, "tag": "environment", "tier": 3}
+      ]
+    },
+    "upper_keys_key_largo": {
+      "label": "Upper Keys - Key Largo & Tavernier",
+      "groups": [
+        {"name": "Key Largo, FL Keys", "members": 145500, "tag": "community", "tier": 1},
+        {"name": "Key Largo Life", "members": 4800, "tag": "community", "tier": 2},
+        {"name": "Key Largo", "members": 4200, "tag": "community", "tier": 2},
+        {"name": "Key Largo and Islamorada Happenings", "members": null, "tag": "events", "tier": 2},
+        {"name": "Key Largo Running Club", "members": null, "tag": "sports-fitness", "tier": 3},
+        {"name": "I LOVE Key Largo!", "members": 638, "tag": "community", "tier": 3},
+        {"name": "Upper Florida Keys Employers & Job Seekers", "members": null, "tag": "jobs", "tier": 3}
+      ]
+    },
+    "upper_keys_islamorada": {
+      "label": "Upper Keys - Islamorada",
+      "groups": [
+        {"name": "Islamorada, Florida", "members": 132600, "tag": "community", "tier": 1},
+        {"name": "Experience the Islamorada Sandbar!", "members": 6500, "tag": "tourism-recreation", "tier": 2},
+        {"name": "GOOD MORNING ISLAMORADA", "members": 3000, "tag": "community", "tier": 2},
+        {"name": "I LOVE Islamorada!", "members": 2000, "tag": "community", "tier": 2},
+        {"name": "Islamorada, FL Keys", "members": null, "tag": "community", "tier": 2},
+        {"name": "The Nott", "members": 620, "tag": "local-niche", "tier": 3},
+        {"name": "Florida Bay Forever", "members": 2700, "tag": "environment", "tier": 3}
+      ]
+    },
+    "middle_keys_marathon": {
+      "label": "Middle Keys - Marathon & Key Colony Beach",
+      "groups": [
+        {"name": "Marathon, FL Keys Past|Present|Future- (uncensored)", "members": 50100, "tag": "community", "tier": 1},
+        {"name": "Marathon, FL Keys", "members": 30400, "tag": "community", "tier": 2},
+        {"name": "Key Colony Beach Facebook Group", "members": 29600, "tag": "community", "tier": 2},
+        {"name": "Marathon, Florida Area Jobs and career opportunites", "members": 8800, "tag": "jobs", "tier": 3},
+        {"name": "I LOVE Marathon!", "members": 288, "tag": "community", "tier": 3}
+      ]
+    },
+    "lower_keys_key_west": {
+      "label": "Lower Keys - Big Pine to Key West",
+      "groups": [
+        {"name": "THINGS TO DO IN KEY WEST", "members": null, "tag": "tourism-events", "tier": 2},
+        {"name": "Big Pine, FL Keys", "members": null, "tag": "community", "tier": 2},
+        {"name": "Sea Base Trek Talk - Prep, News, Info", "members": 12600, "tag": "scouting-youth", "tier": 3}
+      ]
+    },
+    "florida_reach_borderline": {
+      "label": "Borderline - Statewide with heavy Keys relevance",
+      "groups": [
+        {"name": "Florida Lobster Mini Season and Regular", "members": 63800, "tag": "fishing-recreation", "tier": 2},
+        {"name": "Florida offshore fishing", "members": null, "tag": "fishing", "tier": 3}
+      ]
+    }
+  },
+  "posting_notes": {
+    "tier_1": "Maximum reach - post first for any Keys-wide announcement",
+    "tier_2": "Town-targeted or strong niche - match content to geography/topic",
+    "tier_3": "Small or specialized - use only when content directly fits",
+    "hygiene": "Stagger posts 10-15 min apart, vary opening line per group, check each group's promo rules"
+  }
+}

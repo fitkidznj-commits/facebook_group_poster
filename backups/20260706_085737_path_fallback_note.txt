@@ -1,0 +1,1 @@
+Requested Linux path /home/ubuntu/facebook_group_poster was unavailable on this Mac. No existing project files were present there. Research outputs were created under /Users/dan1/facebook_group_poster. Checked on 20260706_085737.

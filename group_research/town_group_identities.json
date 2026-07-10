@@ -1,0 +1,76 @@
+{
+  "version": "2026-07-10",
+  "description": "Town-first naming registry for Florida Keys Facebook group routing.",
+  "towns": {
+    "keys_wide": {
+      "display_name": "Keys-Wide",
+      "groups": [
+        {"name": "What's Up Florida Keys? LOCALS ONLY", "identity": "community_hub", "label": "Keys-wide locals community hub"},
+        {"name": "Keys Life (a place to share)", "identity": "community_hub", "label": "Keys-wide soft community sharing"},
+        {"name": "Florida Keys - Locals Only", "identity": "community_hub", "label": "Keys-wide local-first community group"},
+        {"name": "Amigos of Florida Keys", "identity": "community_hub", "label": "Small Keys-wide community group"},
+        {"name": "Florida Keys Local Business information and advertising", "identity": "business_board", "label": "Keys-wide business advertising board"},
+        {"name": "Keep It Local Florida Keys", "identity": "business_board", "label": "Keys-wide local business support group"},
+        {"name": "Florida Keys Business Directory", "identity": "business_board", "label": "Keys-wide business directory/listing group"},
+        {"name": "Florida Keys Events", "identity": "events_board", "label": "Keys-wide events calendar group"},
+        {"name": "Upper Keys Wine Beer & Food Events", "identity": "events_board", "label": "Upper Keys food and drink events board"},
+        {"name": "Florida Keys Fishing", "identity": "fishing_marine", "label": "Major Keys-wide fishing audience"},
+        {"name": "Florida Sargassum Reports + Daily News", "identity": "environment_water", "label": "Keys-wide water/environment/sargassum group"},
+        {"name": "Florida Keys History with Brad Bertelli", "identity": "history_culture", "label": "Keys-wide history and heritage group"},
+        {"name": "Upper Fl Keys Rentals", "identity": "housing_board", "label": "Upper Keys rental/housing board"},
+        {"name": "Florida Keys Forever Home", "identity": "housing_board", "label": "Keys-wide housing/home group"},
+        {"name": "South Dade and Upper Keys Homeschoolers", "identity": "family_youth", "label": "Family and homeschool group"},
+        {"name": "Pirates Saving Paradise Group", "identity": "community_cause", "label": "Community cause group"}
+      ]
+    },
+    "key_largo_tavernier": {
+      "display_name": "Key Largo / Tavernier",
+      "groups": [
+        {"name": "Key Largo, FL Keys", "identity": "community_hub", "label": "Main Key Largo community hub"},
+        {"name": "Key Largo Life", "identity": "community_hub", "label": "Key Largo lifestyle/community group"},
+        {"name": "Key Largo", "identity": "community_hub", "label": "Key Largo general community group"},
+        {"name": "I LOVE Key Largo!", "identity": "community_hub", "label": "Positive Key Largo community group"},
+        {"name": "Key Largo and Islamorada Happenings", "identity": "events_board", "label": "Upper Keys events and announcement group"},
+        {"name": "Upper Florida Keys Employers & Job Seekers", "identity": "jobs_board", "label": "Upper Keys jobs board"},
+        {"name": "Key Largo Running Club", "identity": "fitness", "label": "Key Largo fitness/running group"}
+      ]
+    },
+    "islamorada": {
+      "display_name": "Islamorada",
+      "groups": [
+        {"name": "Islamorada, Florida", "identity": "community_hub", "label": "Main Islamorada community hub"},
+        {"name": "GOOD MORNING ISLAMORADA", "identity": "community_hub", "label": "Islamorada daily/community group"},
+        {"name": "I LOVE Islamorada!", "identity": "community_hub", "label": "Positive Islamorada community group"},
+        {"name": "Islamorada, FL Keys", "identity": "community_hub", "label": "Islamorada general community group"},
+        {"name": "Experience the Islamorada Sandbar!", "identity": "tourism_recreation", "label": "Islamorada sandbar, boating, and visitor recreation group"},
+        {"name": "Florida Bay Forever", "identity": "environment_water", "label": "Florida Bay and water-quality/environment group"},
+        {"name": "The Nott", "identity": "local_niche", "label": "Islamorada local niche group"}
+      ]
+    },
+    "marathon_key_colony_beach": {
+      "display_name": "Marathon / Key Colony Beach",
+      "groups": [
+        {"name": "Marathon, FL Keys Past|Present|Future- (uncensored)", "identity": "community_hub", "label": "Main Marathon community hub"},
+        {"name": "Marathon, FL Keys", "identity": "community_hub", "label": "Marathon general community group"},
+        {"name": "Key Colony Beach Facebook Group", "identity": "community_hub", "label": "Key Colony Beach community hub"},
+        {"name": "I LOVE Marathon!", "identity": "community_hub", "label": "Positive Marathon community group"},
+        {"name": "Marathon, Florida Area Jobs and career opportunites", "identity": "jobs_board", "label": "Marathon jobs board"}
+      ]
+    },
+    "big_pine_lower_keys_key_west": {
+      "display_name": "Big Pine / Lower Keys / Key West",
+      "groups": [
+        {"name": "THINGS TO DO IN KEY WEST", "identity": "tourism_recreation", "label": "Key West tourism, events, and things-to-do group"},
+        {"name": "Big Pine, FL Keys", "identity": "community_hub", "label": "Big Pine and Lower Keys community hub"},
+        {"name": "Sea Base Trek Talk - Prep, News, Info", "identity": "family_youth", "label": "Sea Base/scouting/youth travel group"}
+      ]
+    },
+    "florida_wide_keys_relevance": {
+      "display_name": "Florida-Wide With Keys Relevance",
+      "groups": [
+        {"name": "Florida Lobster Mini Season and Regular", "identity": "fishing_marine", "label": "Statewide lobster and Keys-relevant recreation group"},
+        {"name": "Florida offshore fishing", "identity": "fishing_marine", "label": "Statewide offshore fishing group"}
+      ]
+    }
+  }
+}
