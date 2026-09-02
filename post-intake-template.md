@@ -1,26 +1,27 @@
 # Facebook Post Routing Intake
 
-Paste this when asking for a route:
+Paste this when asking for a route (or run `python3 manage_groups.py route --type <type> --region <region>`):
 
 ```text
 Route this Facebook post:
 
 [Paste post copy here]
 
-Client/category:
-Location:
+Client:            (a.i. STaRR / FitKidz USA / client name)
+Post type:         business | event | food_drink | fishing | tourism | jobs | housing | product_deal | environment | history | family_youth | community
+Region:            keys_wide | upper_keys | key_largo_tavernier | islamorada | marathon_middle_keys | lower_keys_key_west | statewide
 Goal:
 Offer/deadline:
-Asset attached: yes/no
+Asset attached:    yes/no (path or link)
 Hard promo or community-style:
-Any groups to avoid:
+Groups to avoid:
+Last posted for this client (date/groups):
 ```
 
-## Minimal Version
+## Minimal version
 
 ```text
-Route this:
-[Paste post copy]
+Route this: [paste post copy]
 ```
 
-If the minimal version is used, infer the category and geography from the copy.
+If the minimal version is used, infer post type and region from the copy, and default to 3-8 joined groups.

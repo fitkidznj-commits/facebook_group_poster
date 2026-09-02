@@ -1,239 +1,313 @@
 #!/usr/bin/env python3
-import json
-import os
-import urllib.parse
+"""
+Florida Keys Facebook Groups - master database manager.
 
-JSON_PATH = "group_research/florida_keys_facebook_subgroups.json"
-README_PATH = "README.md"
+Single source of truth: data/groups.json
+Everything else (README.md, ROUTING.md, exports/groups.csv) is GENERATED. Never hand-edit those.
 
-def load_data():
-    if not os.path.exists(JSON_PATH):
-        print(f"Error: JSON file not found at {JSON_PATH}")
-        return None
-    try:
-        with open(JSON_PATH, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"Error reading JSON: {e}")
-        return None
+Usage:
+  python3 manage_groups.py generate            # rebuild README.md, ROUTING.md, exports/groups.csv
+  python3 manage_groups.py validate            # sanity-check the master
+  python3 manage_groups.py list [--joined] [--region X] [--identity Y] [--tier N]
+  python3 manage_groups.py route --type business --region islamorada [--max 8] [--joined-only]
+  python3 manage_groups.py set <slug> field=value [field=value ...]   # e.g. promo_policy=designated_days
+  python3 manage_groups.py join-list           # groups worth joining, ranked by reach
+"""
+import csv, json, os, sys, datetime
 
-def save_data(data):
-    try:
-        # Create directory if it doesn't exist
-        os.makedirs(os.path.dirname(JSON_PATH), exist_ok=True)
-        with open(JSON_PATH, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2)
-        print("Database successfully updated.")
-        return True
-    except Exception as e:
-        print(f"Error saving JSON: {e}")
-        return False
+MASTER = "data/groups.json"
+README = "README.md"
+ROUTING = "ROUTING.md"
+CSV_OUT = "exports/groups.csv"
+ACCOUNT = "dan_heart"
 
-def generate_readme(data):
-    if not data:
-        return
+# --- helpers ---------------------------------------------------------------
 
-    # Calculate statistics
-    total_groups = 0
-    total_members = 0
-    subgroup_stats = []
+def load():
+    with open(MASTER, encoding="utf-8") as f:
+        return json.load(f)
 
-    for key, subgroup in data.get("subgroups", {}).items():
-        groups = subgroup.get("groups", [])
-        g_count = len(groups)
-        total_groups += g_count
-        
-        m_count = 0
-        for g in groups:
-            members = g.get("members")
-            if members is not None:
-                m_count += members
-        total_members += m_count
-        subgroup_stats.append({
-            "label": subgroup.get("label", key),
-            "key": key,
-            "count": g_count,
-            "members": m_count
-        })
+def save(d):
+    d["version"] = datetime.date.today().isoformat()
+    with open(MASTER, "w", encoding="utf-8") as f:
+        json.dump(d, f, indent=2, ensure_ascii=False)
 
-    # Start writing Markdown
+def esc(s):
+    """Escape pipes so group names never break markdown tables."""
+    return str(s).replace("|", "\\|")
+
+def fmt_members(m):
+    return f"{m:,}" if isinstance(m, int) else "unknown"
+
+def joined(g):
+    return g["membership"].get(ACCOUNT) == "joined"
+
+def sort_key(g):
+    return (g["tier"], -(g["members"] or 0))
+
+# --- routing ---------------------------------------------------------------
+
+# post type -> identities that fit, in priority order
+POST_TYPES = {
+    "business":      ["business_board", "community_hub"],
+    "event":         ["events_board", "community_hub", "tourism_recreation"],
+    "food_drink":    ["food_drink", "events_board", "community_hub"],
+    "fishing":       ["fishing_marine", "tourism_recreation", "community_hub"],
+    "tourism":       ["tourism_recreation", "events_board", "community_hub"],
+    "jobs":          ["jobs_board"],
+    "housing":       ["housing_board"],
+    "product_deal":  ["marketplace", "business_board"],
+    "environment":   ["environment_water", "community_cause", "fishing_marine"],
+    "history":       ["history_culture", "community_hub"],
+    "family_youth":  ["family_youth", "community_hub"],
+    "community":     ["community_hub", "community_cause"],
+}
+
+# region -> regions that also apply (a post for Islamorada also fits upper_keys and keys_wide)
+REGION_EXPANSION = {
+    "keys_wide": ["keys_wide"],
+    "upper_keys": ["upper_keys", "keys_wide"],
+    "key_largo_tavernier": ["key_largo_tavernier", "upper_keys", "keys_wide"],
+    "islamorada": ["islamorada", "upper_keys", "keys_wide"],
+    "marathon_middle_keys": ["marathon_middle_keys", "keys_wide"],
+    "lower_keys_key_west": ["lower_keys_key_west", "keys_wide"],
+    "statewide": ["statewide", "keys_wide"],
+}
+
+def route(d, post_type, region, max_groups=8, joined_only=False):
+    idents = POST_TYPES[post_type]
+    regions = REGION_EXPANSION[region]
+    picks = []
+    for g in d["groups"]:
+        if g["identity"] not in idents or g["region"] not in regions:
+            continue
+        if g["promo_policy"] in ("no_promo", "community_only") and post_type in ("business", "product_deal"):
+            continue
+        if joined_only and not joined(g):
+            continue
+        # rank: tier first (reach), then identity fit, then region specificity, then raw size
+        score = (g["tier"], idents.index(g["identity"]), regions.index(g["region"]), -(g["members"] or 0))
+        picks.append((score, g))
+    picks.sort(key=lambda x: x[0])
+    chosen = [g for _, g in picks[:max_groups]]
+    return chosen, [g for _, g in picks[max_groups:]]
+
+def print_route(d, chosen, skipped, post_type, region):
+    print(f"\nROUTE  type={post_type}  region={region}\n")
+    print("Post in this order, 10-15 min apart:")
+    t = datetime.datetime.now().replace(second=0, microsecond=0)
+    for i, g in enumerate(chosen, 1):
+        flag = "" if joined(g) else "  [NOT JOINED - join first]"
+        priv = "" if g["privacy"] == "public" else "  [private]"
+        when = (t + datetime.timedelta(minutes=12*(i-1))).strftime('%I:%M %p')
+        print(f"  {i}. {when}  {g['name']}  ({fmt_members(g['members'])}, T{g['tier']}, {g['identity']}){priv}{flag}")
+        print(f"       {g['url']}")
+    if skipped:
+        print("\nAlso fits, skipped for volume:")
+        for g in skipped[:6]:
+            print(f"  - {g['name']} ({fmt_members(g['members'])})")
+    print("\nCopy notes: change the first sentence per bucket - community hubs get a local-news opener,"
+          " business boards get the offer up front, niche groups get the niche hook.\n")
+
+# --- generators ------------------------------------------------------------
+
+def gen_readme(d):
+    gs = d["groups"]
+    total = sum(g["members"] or 0 for g in gs)
+    j = [g for g in gs if joined(g)]
     md = []
-    md.append("# 🌴 Florida Keys Facebook Subgroups Database")
+    md.append("# 🌴 Florida Keys Facebook Groups Database")
     md.append("")
-    md.append("This repository contains a curated collection of Facebook groups relevant to the Florida Keys. It is structured to help coordinate targeted local marketing, announcements, and research campaigns.")
+    md.append("a.i. STaRR's go-to database of real, verified Florida Keys Facebook groups, used to route and post client, a.i. STaRR, and FitKidz USA content quickly and safely.")
     md.append("")
-    md.append("## 📊 Database Statistics")
+    md.append("**Single source of truth:** `data/groups.json`. This README, `ROUTING.md`, and `exports/groups.csv` are generated - run `python3 manage_groups.py generate` after any edit.")
     md.append("")
-    md.append(f"- **Owner:** {data.get('owner', 'N/A')}")
-    md.append(f"- **Source:** [{data.get('source', 'N/A')}]({data.get('source', '')})")
-    md.append(f"- **Last Captured/Updated:** {data.get('captured', 'N/A')}")
-    md.append(f"- **Total Facebook Groups:** {total_groups}")
-    md.append(f"- **Total Tracked Members:** {total_members:,} (excluding groups with unknown counts)")
+    md.append("## 📊 At a glance")
     md.append("")
-    md.append("### Reach by Subgroup")
+    md.append(f"- **Last verified on Facebook:** {d['version']}")
+    md.append(f"- **Groups in database:** {len(gs)} ({sum(1 for g in gs if g['verification_status']=='verified')} verified, {sum(1 for g in gs if g['verification_status']=='candidate')} candidates to confirm)")
+    md.append(f"- **Combined reach:** {total:,} members")
+    md.append(f"- **Joined by Dan Heart:** {len(j)} groups / {sum(g['members'] or 0 for g in j):,} members")
+    md.append(f"- **Legacy names that turned out not to exist:** {len(d['legacy_entries_not_found'])} (see bottom)")
     md.append("")
-    md.append("| Region / Category | Groups | Tracked Members |")
-    md.append("| :--- | :---: | :---: |")
-    for stat in subgroup_stats:
-        md.append(f"| **{stat['label']}** | {stat['count']} | {stat['members']:,} |")
+    md.append("### Reach by region")
+    md.append("")
+    md.append("| Region | Groups | Members | Joined |")
+    md.append("| :--- | :---: | :---: | :---: |")
+    for rk, rl in d["regions"].items():
+        rg = [g for g in gs if g["region"] == rk]
+        if not rg: continue
+        md.append(f"| **{esc(rl)}** | {len(rg)} | {sum(g['members'] or 0 for g in rg):,} | {sum(1 for g in rg if joined(g))} |")
+    md.append("")
+    md.append("### Reach by identity")
+    md.append("")
+    md.append("| Identity | Groups | Members | What it's for |")
+    md.append("| :--- | :---: | :---: | :--- |")
+    for ik, il in d["identities"].items():
+        ig = [g for g in gs if g["identity"] == ik]
+        if not ig: continue
+        md.append(f"| `{ik}` | {len(ig)} | {sum(g['members'] or 0 for g in ig):,} | {esc(il)} |")
     md.append("")
     md.append("---")
     md.append("")
-    md.append("## 📂 Subgroups Directory")
+    md.append("## 📂 Groups by region")
     md.append("")
-    md.append("> [!TIP]")
-    md.append("> Clicking on any group name below will perform a direct search for that group on Facebook, letting you find it instantly.")
+    md.append("Tier 1 = post first for reach. Tier 2 = town or niche match. Tier 3 = only when the content fits exactly. ✅ = Dan Heart is a member. 🔒 = private group. ⚠️ = candidate match, confirm before relying on it.")
     md.append("")
-
-    # Output details of each subgroup
-    for key, subgroup in data.get("subgroups", {}).items():
-        md.append(f"### {subgroup.get('label', key)}")
+    for rk, rl in d["regions"].items():
+        rg = sorted([g for g in gs if g["region"] == rk], key=sort_key)
+        if not rg: continue
+        md.append(f"### {rl}")
         md.append("")
-        md.append("| Group Name | Members | Niche Tag | Tier | Link |")
-        md.append("| :--- | :---: | :---: | :---: | :---: |")
-        
-        groups = subgroup.get("groups", [])
-        # Sort groups by tier then members descending
-        sorted_groups = sorted(
-            groups, 
-            key=lambda x: (x.get("tier", 3), -(x.get("members") or 0))
-        )
-        
-        for g in sorted_groups:
-            name = g.get("name", "")
-            members_val = g.get("members")
-            members_str = f"{members_val:,}" if members_val is not None else "*Unknown*"
-            tag = g.get("tag", "N/A")
-            tier = g.get("tier", 3)
-            
-            # Create search link
-            quoted_name = urllib.parse.quote(name)
-            fb_link = f"https://www.facebook.com/groups/search/groups/?q={quoted_name}"
-            
-            md.append(f"| {name} | {members_str} | `{tag}` | Tier {tier} | [Find on FB ↗]({fb_link}) |")
+        md.append("| Group | Members | Identity | Tier | Status | Link |")
+        md.append("| :--- | :---: | :--- | :---: | :---: | :---: |")
+        for g in rg:
+            flags = ("✅" if joined(g) else "") + ("🔒" if g["privacy"] == "private" else "") + ("⚠️" if g["verification_status"] == "candidate" else "")
+            md.append(f"| {esc(g['name'])} | {fmt_members(g['members'])} | `{g['identity']}` | {g['tier']} | {flags or '—'} | [Open ↗]({g['url']}) |")
         md.append("")
-
-    # Posting rules
     md.append("---")
     md.append("")
-    md.append("## 🧼 Posting Hygiene & Rules")
+    md.append("## 🧼 Posting rules")
     md.append("")
-    posting_notes = data.get("posting_notes", {})
-    md.append(f"- **Tier 1:** {posting_notes.get('tier_1', '')}")
-    md.append(f"- **Tier 2:** {posting_notes.get('tier_2', '')}")
-    md.append(f"- **Tier 3:** {posting_notes.get('tier_3', '')}")
-    md.append(f"- **Hygiene Guideline:** {posting_notes.get('hygiene', '')}")
+    pr = d["posting_rules"]
+    md.append(f"- Normal post: {pr['normal_post_group_count']} groups. Strong Keys-wide announcement: {pr['keys_wide_post_group_count']}.")
+    md.append(f"- Stagger {pr['stagger_minutes']} minutes apart; change the first sentence per group bucket; no identical link-only posts.")
+    md.append(f"- Same client in the same group no more than once every {pr['max_posts_per_client_per_group_per_days']} days.")
+    md.append("- Never post to a group we haven't joined, a group whose rules forbid promos, or a marketplace/yard-sale board unless it's a product offer.")
+    md.append("- Read each group's rules before the first post there and record `promo_policy`, `allowed_post_days`, and `admin_post_approval` in the master.")
+    md.append("- Automation: every group starts in `assist` mode (agent drafts, human approves). After 5 clean posts with no admin pushback it can be switched to `autopilot`.")
     md.append("")
-    md.append("---")
+    md.append("## ⚙️ How to use")
     md.append("")
-    md.append("## ⚙️ How to Manage Groups")
-    md.append("")
-    md.append("To add new groups or update existing records, use the included CLI management tool:")
     md.append("```bash")
-    md.append("python3 manage_groups.py")
+    md.append("python3 manage_groups.py route --type business --region islamorada     # posting plan for a post")
+    md.append("python3 manage_groups.py list --joined                                 # what we can post to today")
+    md.append("python3 manage_groups.py join-list                                     # highest-reach groups to join next")
+    md.append("python3 manage_groups.py set whats-up-florida-keys promo_policy=designated_days allowed_post_days=Tue")
+    md.append("python3 manage_groups.py generate                                      # rebuild README / ROUTING / CSV")
     md.append("```")
-    md.append("This interactive script will update the [JSON file](group_research/florida_keys_facebook_subgroups.json) and automatically regenerate this `README.md` with sorted tables and clickable links.")
+    md.append("")
+    md.append("Post types for `route`: " + ", ".join(f"`{k}`" for k in POST_TYPES) + ".")
+    md.append("")
+    md.append("---")
+    md.append("")
+    md.append("## 🗑️ Legacy names not found on Facebook")
+    md.append("")
+    md.append("The July 2026 list contained these names. On " + d["version"] + " none could be found as a Facebook group by that name, and several carried member counts that were far off. They are kept here so nobody re-adds them without verifying first.")
+    md.append("")
+    md.append("| Legacy name | Note |")
+    md.append("| :--- | :--- |")
+    for e in d["legacy_entries_not_found"]:
+        md.append(f"| {esc(e['legacy_name'])} | {esc(e['note'])} |")
+    md.append("")
+    with open(README, "w", encoding="utf-8") as f:
+        f.write("\n".join(md))
 
-    try:
-        with open(README_PATH, "w", encoding="utf-8") as f:
-            f.write("\n".join(md) + "\n")
-        print("README.md successfully generated.")
-    except Exception as e:
-        print(f"Error writing README: {e}")
+def gen_routing(d):
+    md = ["# Routing Guide", "",
+          "Generated from `data/groups.json`. Route by post type first, then narrow by region. Groups marked ✅ are ones Dan Heart has joined and can post to today.", ""]
+    for pt, idents in POST_TYPES.items():
+        md.append(f"## `{pt}`")
+        md.append("")
+        md.append("Identities used, in priority order: " + ", ".join(f"`{i}`" for i in idents))
+        md.append("")
+        for rk, rl in d["regions"].items():
+            rg = sorted([g for g in d["groups"] if g["region"] == rk and g["identity"] in idents], key=sort_key)
+            if not rg: continue
+            md.append(f"**{rl}:** " + "; ".join(
+                f"{'✅ ' if joined(g) else ''}{esc(g['name'])} ({fmt_members(g['members'])}{', 🔒' if g['privacy']=='private' else ''})" for g in rg))
+            md.append("")
+    md.append("## Posting order template")
+    md.append("")
+    md.append("```text")
+    md.append("Primary groups:   (tier 1 matches in the post's own region, then keys-wide tier 1)")
+    md.append("Secondary groups: (tier 2 matches)")
+    md.append("Skip:             (identity doesn't fit, not joined, or posted for this client < 7 days ago)")
+    md.append("Posting order:    1... 2... 3...  (10-15 min apart)")
+    md.append("Copy notes:       opener for locals / opener for business boards / opener for niche groups")
+    md.append("```")
+    md.append("")
+    with open(ROUTING, "w", encoding="utf-8") as f:
+        f.write("\n".join(md))
 
-def main():
-    print("==================================================")
-    print("🌴 Florida Keys Facebook Subgroups Manager 🌴")
-    print("==================================================")
-    
-    data = load_data()
-    if not data:
-        return
+def gen_csv(d):
+    os.makedirs(os.path.dirname(CSV_OUT), exist_ok=True)
+    cols = ["slug","name","fb_id","url","region","identity","tier","privacy","members","members_verified_on",
+            "verification_status","joined_dan_heart","has_group_rules","promo_policy","allowed_post_days",
+            "admin_post_approval","automation_mode","clean_posts","last_posted","notes"]
+    with open(CSV_OUT, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f); w.writerow(cols)
+        for g in sorted(d["groups"], key=lambda g: (g["region"], g["tier"], -(g["members"] or 0))):
+            w.writerow([g["slug"], g["name"], g["fb_id"], g["url"], g["region"], g["identity"], g["tier"], g["privacy"],
+                        g["members"] if g["members"] is not None else "", g["members_verified_on"] or "",
+                        g["verification_status"], "yes" if joined(g) else "no",
+                        "" if g["has_group_rules"] is None else ("yes" if g["has_group_rules"] else "no"),
+                        g["promo_policy"], "|".join(g["allowed_post_days"]), g["admin_post_approval"],
+                        g["automation_mode"], g["clean_posts"], g["last_posted"] or "", g["notes"]])
 
-    while True:
-        print("\nMenu:")
-        print("1. List subgroups and group counts")
-        print("2. Add a new Facebook group")
-        print("3. Regenerate README.md")
-        print("4. Exit")
-        
-        choice = input("\nChoose an option (1-4): ").strip()
-        
-        if choice == "1":
-            subgroups = data.get("subgroups", {})
-            for key, sg in subgroups.items():
-                print(f" - [{key}] {sg.get('label')}: {len(sg.get('groups', []))} groups")
-        
-        elif choice == "2":
-            subgroups = data.get("subgroups", {})
-            keys_list = list(subgroups.keys())
-            
-            print("\nSelect a region/subgroup:")
-            for i, key in enumerate(keys_list):
-                print(f"{i + 1}. {subgroups[key].get('label')} ({key})")
-            
-            try:
-                sg_idx = int(input(f"Select region (1-{len(keys_list)}): ").strip()) - 1
-                if sg_idx < 0 or sg_idx >= len(keys_list):
-                    print("Invalid selection.")
-                    continue
-                selected_key = keys_list[sg_idx]
-            except ValueError:
-                print("Invalid input.")
-                continue
-                
-            name = input("Enter Facebook Group Name: ").strip()
-            if not name:
-                print("Group name cannot be empty.")
-                continue
-                
-            members_input = input("Enter Member Count (leave blank for Unknown): ").strip()
-            if members_input == "":
-                members = None
-            else:
-                try:
-                    members = int(members_input)
-                except ValueError:
-                    print("Invalid member count. Group not added.")
-                    continue
-                    
-            tag = input("Enter Niche Tag (e.g. community, fishing, business): ").strip() or "community"
-            
-            try:
-                tier_input = input("Enter Tier (1, 2, or 3): ").strip()
-                tier = int(tier_input) if tier_input in ("1", "2", "3") else 3
-            except ValueError:
-                tier = 3
-                
-            new_group = {
-                "name": name,
-                "members": members,
-                "tag": tag,
-                "tier": tier
-            }
-            
-            # Add to subgroups
-            data["subgroups"][selected_key]["groups"].append(new_group)
-            
-            # Save data and generate readme
-            if save_data(data):
-                generate_readme(data)
-                
-        elif choice == "3":
-            generate_readme(data)
-            
-        elif choice == "4":
-            print("Goodbye!")
-            break
-        else:
-            print("Invalid choice. Please select 1-4.")
+def validate(d):
+    errs = []
+    slugs = set(); ids = set()
+    for g in d["groups"]:
+        if g["slug"] in slugs: errs.append(f"duplicate slug {g['slug']}")
+        if g["fb_id"] in ids: errs.append(f"duplicate fb_id {g['fb_id']} ({g['name']})")
+        slugs.add(g["slug"]); ids.add(g["fb_id"])
+        if g["region"] not in d["regions"]: errs.append(f"{g['slug']}: bad region {g['region']}")
+        if g["identity"] not in d["identities"]: errs.append(f"{g['slug']}: bad identity {g['identity']}")
+        if g["tier"] not in (1,2,3): errs.append(f"{g['slug']}: bad tier")
+        if g["privacy"] not in ("public","private"): errs.append(f"{g['slug']}: bad privacy")
+        if not g["url"].startswith("https://www.facebook.com/groups/"): errs.append(f"{g['slug']}: bad url")
+    for e in errs: print("ERROR:", e)
+    print(f"{len(d['groups'])} groups, {len(errs)} errors")
+    return not errs
+
+# --- CLI -------------------------------------------------------------------
+
+def main(argv):
+    if not argv or argv[0] in ("-h", "--help"):
+        print(__doc__); return
+    cmd, args = argv[0], argv[1:]
+    d = load()
+    if cmd == "generate":
+        if not validate(d): sys.exit(1)
+        gen_readme(d); gen_routing(d); gen_csv(d)
+        print(f"generated {README}, {ROUTING}, {CSV_OUT}")
+    elif cmd == "validate":
+        sys.exit(0 if validate(d) else 1)
+    elif cmd == "list":
+        gs = d["groups"]
+        if "--joined" in args: gs = [g for g in gs if joined(g)]
+        for flag in ("--region", "--identity", "--tier"):
+            if flag in args:
+                v = args[args.index(flag)+1]
+                gs = [g for g in gs if str(g[flag[2:]]) == v]
+        for g in sorted(gs, key=sort_key):
+            print(f"{'✅' if joined(g) else '  '} T{g['tier']} {fmt_members(g['members']):>9}  {g['region']:<22} {g['identity']:<20} {g['name']}")
+        print(f"\n{len(gs)} groups")
+    elif cmd == "route":
+        pt = args[args.index("--type")+1]; rg = args[args.index("--region")+1]
+        mx = int(args[args.index("--max")+1]) if "--max" in args else 8
+        chosen, skipped = route(d, pt, rg, mx, "--joined-only" in args)
+        print_route(d, chosen, skipped, pt, rg)
+    elif cmd == "set":
+        slug = args[0]
+        g = next((g for g in d["groups"] if g["slug"] == slug), None)
+        if not g: print("no such slug"); sys.exit(1)
+        for kv in args[1:]:
+            k, v = kv.split("=", 1)
+            if k == "allowed_post_days": g[k] = [x for x in v.split(",") if x]
+            elif k in ("members","clean_posts","tier"): g[k] = int(v)
+            elif k == "joined": g["membership"][ACCOUNT] = "joined" if v.lower() in ("yes","true","1") else "not_joined"
+            else: g[k] = v
+        save(d); gen_readme(d); gen_routing(d); gen_csv(d)
+        print(f"updated {slug} and regenerated docs")
+    elif cmd == "join-list":
+        gs = sorted([g for g in d["groups"] if not joined(g)], key=lambda g: -(g["members"] or 0))
+        print("Highest-reach groups we have NOT joined yet:\n")
+        for g in gs[:25]:
+            print(f"  {fmt_members(g['members']):>9}  {'🔒' if g['privacy']=='private' else '  '} {g['name']:<60} {g['url']}")
+    else:
+        print(__doc__); sys.exit(1)
 
 if __name__ == "__main__":
-    import sys
-    # If run with a "--generate-only" flag, just rebuild the README and exit
-    if len(sys.argv) > 1 and sys.argv[1] == "--generate-only":
-        data = load_data()
-        if data:
-            generate_readme(data)
-    else:
-        main()
+    main(sys.argv[1:])
