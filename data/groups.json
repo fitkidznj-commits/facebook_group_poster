@@ -2326,7 +2326,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2350,7 +2350,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2374,7 +2374,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "pending"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2398,7 +2398,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2422,7 +2422,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2542,7 +2542,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2566,7 +2566,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2590,7 +2590,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2638,7 +2638,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2734,7 +2734,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2758,7 +2758,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2830,16 +2830,16 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "pending"
       },
-      "has_group_rules": null,
+      "has_group_rules": true,
       "promo_policy": "unknown",
       "allowed_post_days": [],
       "admin_post_approval": "unknown",
       "automation_mode": "assist",
       "clean_posts": 0,
       "last_posted": null,
-      "notes": "Private; largest Key West visitor group."
+      "notes": "Private; largest Key West visitor group. Join requested 2026-10-07; admin questions unanswered (trip to Key West/Keys? + two rule acknowledgements)."
     },
     {
       "slug": "miami-florida",
@@ -2950,7 +2950,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2974,7 +2974,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2998,7 +2998,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -3094,7 +3094,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -3622,16 +3622,16 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
-      "has_group_rules": null,
-      "promo_policy": "unknown",
+      "has_group_rules": true,
+      "promo_policy": "no_promo",
       "allowed_post_days": [],
-      "admin_post_approval": "unknown",
+      "admin_post_approval": "yes",
       "automation_mode": "assist",
       "clean_posts": 0,
       "last_posted": null,
-      "notes": ""
+      "notes": "Joined 2026-10-07 but can't post until 'request to participate' is submitted (agree to rules). Rule 1: no promotions or spam."
     },
     {
       "slug": "south-florida-fishing-group",
@@ -3670,16 +3670,16 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
-      "has_group_rules": null,
+      "has_group_rules": true,
       "promo_policy": "unknown",
       "allowed_post_days": [],
-      "admin_post_approval": "unknown",
+      "admin_post_approval": "yes",
       "automation_mode": "assist",
       "clean_posts": 0,
       "last_posted": null,
-      "notes": "Broward sandbar crowd."
+      "notes": "Broward sandbar crowd. Joined 2026-10-07 but can't post until 'request to participate' is submitted (agree to rules). No political posts."
     },
     {
       "slug": "boat-owners-of-south-florida",
@@ -3742,16 +3742,16 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
-      "has_group_rules": null,
+      "has_group_rules": true,
       "promo_policy": "unknown",
       "allowed_post_days": [],
-      "admin_post_approval": "unknown",
+      "admin_post_approval": "yes",
       "automation_mode": "assist",
       "clean_posts": 0,
       "last_posted": null,
-      "notes": "Boat listings only (70+ posts/day)."
+      "notes": "Boat listings only (70+ posts/day). Joined 2026-10-07 but can't post until participant questions are answered (Do you live in Florida? / what can be sold: Boats). Rules: one post per day, price must be included."
     },
     {
       "slug": "sofl-fishing-buy-sell-trade",
@@ -4078,7 +4078,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
