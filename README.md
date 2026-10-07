@@ -6,25 +6,25 @@ a.i. STaRR's go-to database of real, verified Florida Keys Facebook groups, used
 
 ## 📊 At a glance
 
-- **Last verified on Facebook:** 2026-10-06
+- **Last verified on Facebook:** 2026-10-07
 - **Groups in database:** 174 (165 verified, 9 candidates to confirm)
 - **Combined reach:** 3,450,284 members
-- **Joined by Dan Heart:** 18 groups / 143,344 members
+- **Joined by Dan Heart:** 34 groups / 1,152,544 members
 - **Legacy names that turned out not to exist:** 22 (see bottom)
 
 ### Reach by region
 
 | Region | Groups | Members | Joined |
 | :--- | :---: | :---: | :---: |
-| **Keys-Wide (entire island chain)** | 45 | 259,767 | 7 |
+| **Keys-Wide (entire island chain)** | 45 | 259,767 | 11 |
 | **Upper Keys (Key Largo through Islamorada)** | 2 | 40,390 | 1 |
 | **Upper Keys - Key Largo & Tavernier** | 9 | 23,370 | 3 |
 | **Upper Keys - Islamorada** | 17 | 177,565 | 5 |
 | **Middle Keys - Marathon & Key Colony Beach** | 8 | 38,400 | 1 |
-| **Lower Keys - Big Pine to Key West** | 28 | 509,460 | 0 |
-| **Miami & Miami Beach (Miami-Dade)** | 27 | 1,096,410 | 0 |
-| **South Florida regional (Miami-Dade & Broward waters)** | 15 | 214,152 | 0 |
-| **Statewide with Keys relevance** | 23 | 1,090,770 | 1 |
+| **Lower Keys - Big Pine to Key West** | 28 | 509,460 | 2 |
+| **Miami & Miami Beach (Miami-Dade)** | 27 | 1,096,410 | 6 |
+| **South Florida regional (Miami-Dade & Broward waters)** | 15 | 214,152 | 3 |
+| **Statewide with Keys relevance** | 23 | 1,090,770 | 2 |
 
 ### Reach by identity
 
@@ -63,17 +63,17 @@ Tier 1 = post first for reach. Tier 2 = town or niche match. Tier 3 = only when 
 | Florida Keys Bridge Fishing | 13,000 | `fishing_marine` | 2 | 🔒 | [Open ↗](https://www.facebook.com/groups/288676851982854) |
 | KeyLife | 11,000 | `community_hub` | 2 | 🔒 | [Open ↗](https://www.facebook.com/groups/1736804119872023) |
 | Florida Keys FOR RENT | 11,000 | `housing_board` | 2 | ⚠️ | [Open ↗](https://www.facebook.com/groups/FloridaKeysForRent) |
-| Vacation Rentals in Key West & the Florida Keys | 10,000 | `housing_board` | 2 | — | [Open ↗](https://www.facebook.com/groups/keysvacationrentals) |
+| Vacation Rentals in Key West & the Florida Keys | 10,000 | `housing_board` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/keysvacationrentals) |
 | Florida Keys Fishing Forum | 8,700 | `fishing_marine` | 2 | — | [Open ↗](https://www.facebook.com/groups/1120911431585040) |
 | Florida Keys History | 8,400 | `history_culture` | 2 | ⚠️ | [Open ↗](https://www.facebook.com/groups/1362248743967131) |
-| Florida Keys: Buy/ Sell/ Trade/ Barter/ Promote/ Donate/ Help | 8,100 | `business_board` | 2 | — | [Open ↗](https://www.facebook.com/groups/1880782342155811) |
+| Florida Keys: Buy/ Sell/ Trade/ Barter/ Promote/ Donate/ Help | 8,100 | `business_board` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/1880782342155811) |
 | Florida key's bridge fishing reports | 6,800 | `fishing_marine` | 2 | 🔒 | [Open ↗](https://www.facebook.com/groups/973787147364034) |
-| Florida Keys- Boats For Sale | 5,100 | `marketplace` | 2 | — | [Open ↗](https://www.facebook.com/groups/1227197360666006) |
+| Florida Keys- Boats For Sale | 5,100 | `marketplace` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/1227197360666006) |
 | Florida Keys - Locals Only | 4,900 | `community_hub` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/1478183676350897) |
 | Keys Life (a place to share) | 4,000 | `community_hub` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/1112742373974472) |
 | Florida Keys Art & Music | 4,000 | `events_board` | 2 | — | [Open ↗](https://www.facebook.com/groups/1001370882105457) |
 | The Real Florida Keys | 3,200 | `community_hub` | 2 | — | [Open ↗](https://www.facebook.com/groups/therealfloridakeys) |
-| Florida Keys Nautical Flea Market | 2,800 | `marketplace` | 2 | — | [Open ↗](https://www.facebook.com/groups/757766560926201) |
+| Florida Keys Nautical Flea Market | 2,800 | `marketplace` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/757766560926201) |
 | Little Conchs aka Florida Keys Kids Playgroup | 476 | `family_youth` | 2 | 🔒 | [Open ↗](https://www.facebook.com/groups/255153098270822) |
 | Lost and Found Pets Florida Keys | 17,000 | `community_cause` | 3 | — | [Open ↗](https://www.facebook.com/groups/LostandFoundPetsFloridaKeys) |
 | FLORIDA KEYS | 4,000 | `community_hub` | 3 | — | [Open ↗](https://www.facebook.com/groups/579572661430932) |
@@ -165,14 +165,14 @@ Tier 1 = post first for reach. Tier 2 = town or niche match. Tier 3 = only when 
 | Key West, FL Keys | 13,000 | `community_hub` | 1 | — | [Open ↗](https://www.facebook.com/groups/774906927734780) |
 | Key West Events & fun things to do | 12,000 | `events_board` | 1 | — | [Open ↗](https://www.facebook.com/groups/1426994451571196) |
 | Key West | 106,000 | `tourism_recreation` | 2 | 🔒 | [Open ↗](https://www.facebook.com/groups/keywesttravel) |
-| Key west Travel Tips | 50,000 | `tourism_recreation` | 2 | — | [Open ↗](https://www.facebook.com/groups/1419480362394789) |
+| Key west Travel Tips | 50,000 | `tourism_recreation` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/1419480362394789) |
 | KEY WEST FL JOBS | 27,000 | `jobs_board` | 2 | 🔒 | [Open ↗](https://www.facebook.com/groups/1683105378655795) |
 | Key West Cribs 2.0 | 25,000 | `housing_board` | 2 | — | [Open ↗](https://www.facebook.com/groups/1048106905260864) |
 | I LOVE KEY WEST & FL KEYS | 15,000 | `community_hub` | 2 | — | [Open ↗](https://www.facebook.com/groups/1828426688002336) |
 | KEY WEST, FL - Anything About Key West Here. | 9,600 | `community_hub` | 2 | — | [Open ↗](https://www.facebook.com/groups/keywest1) |
 | Key West information and Events. | 8,500 | `events_board` | 2 | — | [Open ↗](https://www.facebook.com/groups/630139812570199) |
 | Key West Happy Hours & Then Some! | 7,600 | `food_drink` | 2 | — | [Open ↗](https://www.facebook.com/groups/306189633673172) |
-| KEY WEST FISHING | 6,500 | `fishing_marine` | 2 | 🔒 | [Open ↗](https://www.facebook.com/groups/132903406803498) |
+| KEY WEST FISHING | 6,500 | `fishing_marine` | 2 | ✅🔒 | [Open ↗](https://www.facebook.com/groups/132903406803498) |
 | Lower Keys Fishing Reports | 5,500 | `fishing_marine` | 2 | 🔒 | [Open ↗](https://www.facebook.com/groups/676226436421539) |
 | Big Pine Key , Florida | 4,700 | `community_hub` | 2 | 🔒 | [Open ↗](https://www.facebook.com/groups/3076891382397940) |
 | Key West for Kids | 2,700 | `family_youth` | 2 | — | [Open ↗](https://www.facebook.com/groups/577019075821418) |
@@ -193,16 +193,16 @@ Tier 1 = post first for reach. Tier 2 = town or niche match. Tier 3 = only when 
 
 | Group | Members | Identity | Tier | Status | Link |
 | :--- | :---: | :--- | :---: | :---: | :---: |
-| Miami, Florida | 438,000 | `tourism_recreation` | 1 | — | [Open ↗](https://www.facebook.com/groups/miamifloridagroup) |
-| Miami Florida – South Florida Events • Happenings • Food | 154,000 | `events_board` | 1 | — | [Open ↗](https://www.facebook.com/groups/miami.fortlauderdale.happenings) |
-| MiamiBeach | 153,000 | `tourism_recreation` | 1 | — | [Open ↗](https://www.facebook.com/groups/MiamiBeach) |
-| Miami Travel Tips | 39,000 | `tourism_recreation` | 1 | — | [Open ↗](https://www.facebook.com/groups/traveltipsmiami) |
+| Miami, Florida | 438,000 | `tourism_recreation` | 1 | ✅ | [Open ↗](https://www.facebook.com/groups/miamifloridagroup) |
+| Miami Florida – South Florida Events • Happenings • Food | 154,000 | `events_board` | 1 | ✅ | [Open ↗](https://www.facebook.com/groups/miami.fortlauderdale.happenings) |
+| MiamiBeach | 153,000 | `tourism_recreation` | 1 | ✅ | [Open ↗](https://www.facebook.com/groups/MiamiBeach) |
+| Miami Travel Tips | 39,000 | `tourism_recreation` | 1 | ✅ | [Open ↗](https://www.facebook.com/groups/traveltipsmiami) |
 | Miami Beach Paradise | 88,000 | `tourism_recreation` | 2 | — | [Open ↗](https://www.facebook.com/groups/749544325486683) |
 | Miami Beach, Florida | 70,000 | `tourism_recreation` | 2 | — | [Open ↗](https://www.facebook.com/groups/miamibeachfloridagroup) |
 | Miami Beach Florida (33K) | 33,000 | `tourism_recreation` | 2 | — | [Open ↗](https://www.facebook.com/groups/1701825663342554) |
-| Yachting Miami | 12,000 | `fishing_marine` | 2 | — | [Open ↗](https://www.facebook.com/groups/yachtingmiami) |
+| Yachting Miami | 12,000 | `fishing_marine` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/yachtingmiami) |
 | Miami Florida Things To Do | 7,200 | `tourism_recreation` | 2 | — | [Open ↗](https://www.facebook.com/groups/408112238298574) |
-| Miami Boating Club | 1,300 | `fishing_marine` | 2 | — | [Open ↗](https://www.facebook.com/groups/1241278462597826) |
+| Miami Boating Club | 1,300 | `fishing_marine` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/1241278462597826) |
 | Miami Yacht Crew | 34,000 | `jobs_board` | 3 | — | [Open ↗](https://www.facebook.com/groups/726494660810488) |
 | Miami Beach Florida (20K) | 20,000 | `tourism_recreation` | 3 | — | [Open ↗](https://www.facebook.com/groups/878019133521305) |
 | Miami Beach Florida 🌴☀️✈️ | 17,000 | `tourism_recreation` | 3 | — | [Open ↗](https://www.facebook.com/groups/342542572185084) |
@@ -225,11 +225,11 @@ Tier 1 = post first for reach. Tier 2 = town or niche match. Tier 3 = only when 
 
 | Group | Members | Identity | Tier | Status | Link |
 | :--- | :---: | :--- | :---: | :---: | :---: |
-| South Florida Boating | 12,000 | `fishing_marine` | 1 | — | [Open ↗](https://www.facebook.com/groups/2710477649181433) |
+| South Florida Boating | 12,000 | `fishing_marine` | 1 | ✅ | [Open ↗](https://www.facebook.com/groups/2710477649181433) |
 | SOUTH FLORIDA BOAT SALES | 46,000 | `marketplace` | 2 | — | [Open ↗](https://www.facebook.com/groups/755877857812780) |
 | Fort Lauderdale Sandbar Club | 25,000 | `tourism_recreation` | 2 | — | [Open ↗](https://www.facebook.com/groups/491472827623944) |
-| South Florida Boat Runs | 17,000 | `fishing_marine` | 2 | — | [Open ↗](https://www.facebook.com/groups/577955432708148) |
-| South Florida Fishing Group | 9,400 | `fishing_marine` | 2 | — | [Open ↗](https://www.facebook.com/groups/793416478051605) |
+| South Florida Boat Runs | 17,000 | `fishing_marine` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/577955432708148) |
+| South Florida Fishing Group | 9,400 | `fishing_marine` | 2 | ✅ | [Open ↗](https://www.facebook.com/groups/793416478051605) |
 | South Florida Fishing and Boating | 7,900 | `fishing_marine` | 2 | — | [Open ↗](https://www.facebook.com/groups/689735821144011) |
 | Fort Lauderdale and Miami Yacht Crew | 36,000 | `jobs_board` | 3 | — | [Open ↗](https://www.facebook.com/groups/152928435139834) |
 | South Florida Fishing Buy Sell Trade | 29,000 | `marketplace` | 3 | — | [Open ↗](https://www.facebook.com/groups/613065965430415) |
@@ -252,7 +252,7 @@ Tier 1 = post first for reach. Tier 2 = town or niche match. Tier 3 = only when 
 | All Things Lobstering | 15,000 | `fishing_marine` | 2 | ⚠️ | [Open ↗](https://www.facebook.com/groups/387375017591261) |
 | FLORIDA BOAT LISTINGS ⚓️ | 143,000 | `marketplace` | 3 | 🔒 | [Open ↗](https://www.facebook.com/groups/1396691977018246) |
 | Florida boats for sale | 130,000 | `marketplace` | 3 | — | [Open ↗](https://www.facebook.com/groups/2776644632388917) |
-| Boat Trader / Sales By Owner Florida | 91,000 | `marketplace` | 3 | — | [Open ↗](https://www.facebook.com/groups/BOATTRADERFLORIDA) |
+| Boat Trader / Sales By Owner Florida | 91,000 | `marketplace` | 3 | ✅ | [Open ↗](https://www.facebook.com/groups/BOATTRADERFLORIDA) |
 | Florida - Boats For Sale (group) | 59,000 | `marketplace` | 3 | — | [Open ↗](https://www.facebook.com/groups/809972879100788) |
 | Vacation Rental Homes No Booking Fees | 55,000 | `housing_board` | 3 | — | [Open ↗](https://www.facebook.com/groups/bookdirectvacationrental) |
 | Florida Boats For Sale | 45,000 | `marketplace` | 3 | — | [Open ↗](https://www.facebook.com/groups/floridausedboats) |
@@ -296,7 +296,7 @@ Post types for `route`: `business`, `event`, `food_drink`, `fishing`, `boating`,
 
 ## 🗑️ Legacy names not found on Facebook
 
-The July 2026 list contained these names. On 2026-10-06 none could be found as a Facebook group by that name, and several carried member counts that were far off. They are kept here so nobody re-adds them without verifying first.
+The July 2026 list contained these names. On 2026-10-07 none could be found as a Facebook group by that name, and several carried member counts that were far off. They are kept here so nobody re-adds them without verifying first.
 
 | Legacy name | Note |
 | :--- | :--- |

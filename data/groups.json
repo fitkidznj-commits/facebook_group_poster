@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-06",
+  "version": "2026-10-07",
   "owner": "a.i. STaRR / Dan Heart (Coach)",
   "source": "Facebook group search + group About pages, captured via Chrome on 2026-09-02; fishing/boating + Miami expansion captured via Chrome on 2026-10-06",
   "poster_accounts": [
@@ -2206,7 +2206,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "pending"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2215,7 +2215,7 @@
       "automation_mode": "assist",
       "clean_posts": 0,
       "last_posted": null,
-      "notes": "Biggest Keys fishing group found. Private; join first."
+      "notes": "Biggest Keys fishing group found. Private. Join requested 2026-10-07; admin questions still unanswered (Do you fish? / Favorite island in the Keys?)."
     },
     {
       "slug": "fk-bridge-fishing-reports",
@@ -2230,7 +2230,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "pending"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2254,16 +2254,16 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "pending"
       },
-      "has_group_rules": null,
+      "has_group_rules": true,
       "promo_policy": "unknown",
       "allowed_post_days": [],
       "admin_post_approval": "unknown",
       "automation_mode": "assist",
       "clean_posts": 0,
       "last_posted": null,
-      "notes": "Private. Top Islamorada fishing group; join first."
+      "notes": "Private. Join requested 2026-10-07 (entry questions answered). Rule: fishing or Islamorada topics only, no politics."
     },
     {
       "slug": "key-west-fishing",
@@ -2278,7 +2278,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2287,7 +2287,7 @@
       "automation_mode": "assist",
       "clean_posts": 0,
       "last_posted": null,
-      "notes": "Private."
+      "notes": "Private. Requested and approved 2026-10-07."
     },
     {
       "slug": "lower-keys-fishing-reports",
@@ -2302,7 +2302,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "pending"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2494,7 +2494,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2518,7 +2518,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2710,7 +2710,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2782,7 +2782,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2806,7 +2806,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2854,7 +2854,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2878,7 +2878,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2902,7 +2902,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -2926,7 +2926,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -3190,7 +3190,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -3214,7 +3214,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -3574,7 +3574,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -3598,7 +3598,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -3646,7 +3646,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
@@ -3934,7 +3934,7 @@
       "members_verified_on": "2026-10-06",
       "verification_status": "verified",
       "membership": {
-        "dan_heart": "not_joined"
+        "dan_heart": "joined"
       },
       "has_group_rules": null,
       "promo_policy": "unknown",
