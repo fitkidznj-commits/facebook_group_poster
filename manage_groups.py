@@ -53,6 +53,9 @@ POST_TYPES = {
     "event":         ["events_board", "community_hub", "tourism_recreation"],
     "food_drink":    ["food_drink", "events_board", "community_hub"],
     "fishing":       ["fishing_marine", "tourism_recreation", "community_hub"],
+    "boating":       ["fishing_marine", "tourism_recreation", "community_hub"],
+    "boat_sale":     ["marketplace", "fishing_marine"],
+    "vacation":      ["tourism_recreation", "housing_board", "events_board"],
     "tourism":       ["tourism_recreation", "events_board", "community_hub"],
     "jobs":          ["jobs_board"],
     "housing":       ["housing_board"],
@@ -71,6 +74,10 @@ REGION_EXPANSION = {
     "islamorada": ["islamorada", "upper_keys", "keys_wide"],
     "marathon_middle_keys": ["marathon_middle_keys", "keys_wide"],
     "lower_keys_key_west": ["lower_keys_key_west", "keys_wide"],
+    # Miami is its own section: Keys posts never spill into Miami groups, and
+    # Miami posts never spill into Keys locals groups.
+    "miami": ["miami", "south_florida"],
+    "south_florida": ["south_florida", "miami"],
     "statewide": ["statewide", "keys_wide"],
 }
 
